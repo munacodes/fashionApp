@@ -1,3 +1,4 @@
+import 'package:fashion_app/screens/startScreens.dart';
 import 'package:flutter/material.dart';
 import 'utils/fashionTheme.dart';
 import 'utils/colors.dart';
@@ -19,7 +20,7 @@ class _MyHomePageState extends State<MyHomePage> {
         appBar: AppBar(
           title: const Text('Fashion'),
         ),
-        body: Container(),
+        body: const StartScreensPage(),
       ),
     );
   }

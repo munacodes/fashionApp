@@ -26,14 +26,11 @@ class _StartScreensPageState extends State<StartScreensPage> {
           child: Stack(
             children: const [
               Positioned(
-                width: 238,
-                height: 50,
-                left: 975,
-                top: 347,
+                top: 20,
+                width: 30,
                 child: Text(
                   'BELLEMODA',
                   style: TextStyle(
-                    color: Color(0xFFFFFFFF),
                     fontSize: 32,
                     fontWeight: FontWeight.w400,
                   ),
