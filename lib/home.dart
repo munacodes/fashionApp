@@ -1,21 +1,17 @@
 import 'package:flutter/material.dart';
+import 'utils/fashionTheme.dart';
+import 'utils/colors.dart';
 
-class MyHome extends StatefulWidget {
-  final int currentTab;
-
-  const MyHome({Key? key, required this.currentTab}) : super(key: key);
+class MyHomePage extends StatefulWidget {
+  const MyHomePage({
+    Key? key,
+  }) : super(key: key);
 
   @override
-  State<MyHome> createState() => _MyHomeState();
+  State<MyHomePage> createState() => _MyHomePageState();
 }
 
-class _MyHomeState extends State<MyHome> {
-  static List<Widget> pages = [
-    Container(color: Colors.orange),
-    Container(color: Colors.blue),
-    Container(color: Colors.red),
-  ];
-
+class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -23,21 +19,7 @@ class _MyHomeState extends State<MyHome> {
         appBar: AppBar(
           title: const Text('Fashion'),
         ),
-        body: IndexedStack(index: widget.currentTab, children: pages),
-        bottomNavigationBar: BottomNavigationBar(
-          selectedItemColor: Colors.green,
-          currentIndex: widget.currentTab,
-          items: const [
-            BottomNavigationBarItem(
-              icon: Icon(Icons.book),
-              label: 'Card 1',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.cabin),
-              label: 'Card 2',
-            ),
-          ],
-        ),
+        body: Container(),
       ),
     );
   }
