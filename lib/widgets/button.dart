@@ -21,52 +21,14 @@ class PrimaryButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return loading
-        ? Platform.isAndroid
-            ? const Center(child: CircularProgressIndicator())
-            : const Center(child: CupertinoActivityIndicator())
-        : SizedBox(
-            width: double.infinity,
-            child: icon == null
-                ? ElevatedButton(
-                    style: ButtonStyle(
-                      padding:
-                          MaterialStateProperty.all(const EdgeInsets.all(15)),
-                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                        RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(16.0),
-                        ),
-                      ),
-                      backgroundColor: MaterialStateProperty.all<Color>(
-                        AppCustomColors.dark,
-                      ),
-                    ),
-                    onPressed: () => onPressed!(),
-                    child: Text(
-                      title,
-                      style: lightTextTheme.button,
-                    ),
-                  )
-                : ElevatedButton.icon(
-                    style: ButtonStyle(
-                      padding:
-                          MaterialStateProperty.all(const EdgeInsets.all(15)),
-                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                        RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(16.0),
-                        ),
-                      ),
-                      backgroundColor: MaterialStateProperty.all<Color>(
-                        AppCustomColors.dark,
-                      ),
-                    ),
-                    onPressed: () => onPressed!(),
-                    label: Text(
-                      title,
-                      style: lightTextTheme.button,
-                    ),
-                    icon: icon!,
-                  ),
-          );
+    return ElevatedButton(
+      style: ButtonStyle(
+        backgroundColor: MaterialStateProperty.all<Color>(Colors.grey),
+      ),
+      onPressed: () {},
+      child: Text(
+        title,
+      ),
+    );
   }
 }

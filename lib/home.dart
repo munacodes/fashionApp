@@ -1,7 +1,7 @@
 import 'package:fashion_app/screens/startScreens.dart';
 import 'package:flutter/material.dart';
-import 'utils/fashionTheme.dart';
-import 'utils/colors.dart';
+import 'screens/homePageScreen.dart';
+import 'screens/startScreens.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({
@@ -15,12 +15,9 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
+    return const SafeArea(
       child: Scaffold(
-        appBar: AppBar(
-          title: const Text('Fashion'),
-        ),
-        body: const StartScreensPage(),
+        body: MyHomePageScreen(),
       ),
     );
   }
