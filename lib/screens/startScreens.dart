@@ -1,8 +1,11 @@
+import 'package:fashion_app/screens/screensExports.dart';
 import 'package:fashion_app/widgets/widgetsExports.dart';
 import 'package:flutter/material.dart';
 import 'package:fashion_app/utils/fashionTheme.dart';
 import 'package:fashion_app/utils/colors.dart';
 import 'package:google_fonts/google_fonts.dart';
+
+import '../utils/utilsExports.dart';
 
 class StartScreensPage extends StatefulWidget {
   const StartScreensPage({Key? key}) : super(key: key);
@@ -25,8 +28,8 @@ class _StartScreensPageState extends State<StartScreensPage> {
             ),
           ),
           child: Stack(
-            children: const [
-              Positioned(
+            children: [
+              const Positioned(
                 height: 50,
                 left: 75,
                 top: 7,
@@ -39,7 +42,7 @@ class _StartScreensPageState extends State<StartScreensPage> {
                   ),
                 ),
               ),
-              Positioned(
+              const Positioned(
                 width: 380.28,
                 height: 88,
                 left: 43.25,
@@ -53,7 +56,7 @@ class _StartScreensPageState extends State<StartScreensPage> {
                   ),
                 ),
               ),
-              Positioned(
+              const Positioned(
                 width: 373,
                 height: 100,
                 left: 243.25,
@@ -67,7 +70,7 @@ class _StartScreensPageState extends State<StartScreensPage> {
                   ),
                 ),
               ),
-              Positioned(
+              const Positioned(
                 width: 348.28,
                 height: 39.06,
                 left: 50.0,
@@ -81,6 +84,8 @@ class _StartScreensPageState extends State<StartScreensPage> {
                   ),
                 ),
               ),
+              _buildLoginCard(),
+              _buildRegisterCard(),
             ],
           ),
         ),
@@ -88,15 +93,47 @@ class _StartScreensPageState extends State<StartScreensPage> {
     );
   }
 
-  Widget loginButton(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: const [
-          PrimaryButton(title: 'Login'),
-          PrimaryButton(title: 'Register'),
-        ],
+  Widget _buildLoginCard() {
+    return Center(
+      child: Container(
+        child: Stack(
+          children: const [
+            Positioned(
+              width: 153,
+              height: 46.02,
+              top: 506.99,
+              left: 11.42,
+              child: Card(
+                child: PrimaryButton(
+                  title: 'Login',
+                  onPressed: () => const MyLoginScreenPage(),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildRegisterCard() {
+    return Center(
+      child: Container(
+        child: Stack(
+          children: const [
+            Positioned(
+              width: 153,
+              height: 46.02,
+              top: 506.99,
+              right: 10,
+              child: Card(
+                child: PrimaryButton(
+                  title: 'Register',
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

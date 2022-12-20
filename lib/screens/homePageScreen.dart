@@ -64,8 +64,8 @@ class _MyHomePageScreenState extends State<MyHomePageScreen> {
             ),
           ),
           child: Stack(
-            children: const [
-              Positioned(
+            children: [
+              const Positioned(
                 width: 175.16,
                 height: 43.49,
                 top: 231.44,
@@ -79,7 +79,7 @@ class _MyHomePageScreenState extends State<MyHomePageScreen> {
                   ),
                 ),
               ),
-              Positioned(
+              const Positioned(
                 width: 187.24,
                 height: 43.49,
                 left: 60.37,
@@ -93,7 +93,7 @@ class _MyHomePageScreenState extends State<MyHomePageScreen> {
                   ),
                 ),
               ),
-              Positioned(
+              const Positioned(
                 width: 287.51,
                 height: 43.49,
                 left: 65.24,
@@ -107,8 +107,38 @@ class _MyHomePageScreenState extends State<MyHomePageScreen> {
                   ),
                 ),
               ),
+              _exploreCollection()
             ],
           ),
+        ),
+      ),
+    );
+  }
+
+  Widget _exploreCollection() {
+    return Center(
+      child: Container(
+        child: Stack(
+          alignment: Alignment.bottomCenter,
+          children: [
+            Card(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(15),
+              ),
+              child: Container(
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisSize: MainAxisSize.max,
+                  children: const [
+                    Padding(
+                      padding: EdgeInsets.all(8.0),
+                      child: Text('ggahgh'),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ],
         ),
       ),
     );

@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../utils/utilsExports.dart';
 
@@ -23,11 +24,20 @@ class PrimaryButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       style: ButtonStyle(
-        backgroundColor: MaterialStateProperty.all<Color>(Colors.grey),
+        padding: MaterialStateProperty.all(const EdgeInsets.all(15)),
+        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+          RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(11.50),
+          ),
+        ),
+        backgroundColor: MaterialStateProperty.all<Color>(
+          AppCustomColors.light,
+        ),
       ),
-      onPressed: () {},
+      onPressed: () => onPressed!(),
       child: Text(
         title,
+        style: lightTextTheme.button,
       ),
     );
   }
