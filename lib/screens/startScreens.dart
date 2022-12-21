@@ -103,12 +103,7 @@ class _StartScreensPageState extends State<StartScreensPage> {
               height: 46.02,
               top: 506.99,
               left: 11.42,
-              child: Card(
-                child: PrimaryButton(
-                  title: 'Login',
-                  onPressed: () => const MyLoginScreenPage(),
-                ),
-              ),
+              child: Card(),
             ),
           ],
         ),
