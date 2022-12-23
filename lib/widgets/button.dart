@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -38,6 +36,29 @@ class PrimaryButton extends StatelessWidget {
       child: Text(
         title,
         style: lightTextTheme.button,
+      ),
+    );
+  }
+}
+
+class SecondaryButton extends StatelessWidget {
+  final String? title;
+  final Function? onPressed;
+  final ButtonStyle? style;
+
+  const SecondaryButton({
+    Key? key,
+    required this.title,
+    required this.onPressed,
+    this.style,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return TextButton(
+      onPressed: () => onPressed!(),
+      child: Text(
+        title!,
       ),
     );
   }

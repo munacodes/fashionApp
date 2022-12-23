@@ -115,25 +115,21 @@ class _StartScreensPageState extends State<StartScreensPage> {
   }
 
   Widget _buildRegisterCard() {
-    return Center(
-      child: Container(
-        child: Stack(
-          children: const [
-            Align(
-              alignment: Alignment.bottomRight,
-              child: Positioned(
-                width: 153,
-                height: 46.02,
-                top: 506.99,
-                right: 10,
-                child: Card(
-                  child: PrimaryButton(
-                    title: 'Register',
-                  ),
-                ),
+    return const Center(
+      child: SizedBox(
+        child: Center(
+          child: Stack(
+            children: [
+              Container(
+                width: 300,
+                height: 300,
+                color: Colors.red,
+                padding: EdgeInsets.all(10.0),
+                alignment: Alignment.topRight,
+                child: PrimaryButton(title: 'title'),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

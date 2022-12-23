@@ -1,3 +1,5 @@
+import 'package:fashion_app/screens/userProfile.dart';
+import 'package:fashion_app/widgets/widgetsExports.dart';
 import 'package:flutter/material.dart';
 import 'package:fashion_app/utils/fashionTheme.dart';
 
@@ -26,13 +28,15 @@ class _MyHomePageScreenState extends State<MyHomePageScreen> {
               SizedBox(
                 width: 103.36,
               ),
-              Text(
-                'BELLE MODA',
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.w400,
-                  color: Color(0xFF333333),
-                ),
+              SecondaryButton(
+                title: 'BELLA MODA',
+                onPressed: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => const MyProfilePage(),
+                    ),
+                  );
+                },
               ),
               SizedBox(
                 width: 68.82,
