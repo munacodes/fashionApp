@@ -98,12 +98,15 @@ class _StartScreensPageState extends State<StartScreensPage> {
       child: Container(
         child: Stack(
           children: const [
-            Positioned(
-              width: 153,
-              height: 46.02,
-              top: 506.99,
-              left: 11.42,
-              child: Card(),
+            Align(
+              alignment: Alignment.bottomLeft,
+              child: Positioned(
+                width: 153,
+                height: 46.02,
+                top: 506.99,
+                left: 11.42,
+                child: Card(),
+              ),
             ),
           ],
         ),
@@ -116,14 +119,17 @@ class _StartScreensPageState extends State<StartScreensPage> {
       child: Container(
         child: Stack(
           children: const [
-            Positioned(
-              width: 153,
-              height: 46.02,
-              top: 506.99,
-              right: 10,
-              child: Card(
-                child: PrimaryButton(
-                  title: 'Register',
+            Align(
+              alignment: Alignment.bottomRight,
+              child: Positioned(
+                width: 153,
+                height: 46.02,
+                top: 506.99,
+                right: 10,
+                child: Card(
+                  child: PrimaryButton(
+                    title: 'Register',
+                  ),
                 ),
               ),
             ),
