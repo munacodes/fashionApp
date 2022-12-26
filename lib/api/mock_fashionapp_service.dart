@@ -1,8 +1,10 @@
 import 'dart:convert';
 
 import 'package:flutter/services.dart';
-
-import '../models/models.dart';
+import 'package:fashion_app/models/exploreData.dart';
+import 'package:fashion_app/models/exploreCollection.dart';
+import 'package:fashion_app/models/post.dart';
+import '../models/modelsExport.dart';
 
 // Mock recipe service that grabs sample json data to mock recipe request/response
 class MockFooderlichService {
@@ -15,7 +17,7 @@ class MockFooderlichService {
   }
 
   // Get sample explore recipes json to display in ui
-  Future<List<ExploreRecipe>> _getTodayRecipes() async {
+  Future<List<ExploreCollection>> _getTodayRecipes() async {
     // Simulate api request wait time
     await Future.delayed(const Duration(milliseconds: 1000));
     // Load json from file system
@@ -26,9 +28,9 @@ class MockFooderlichService {
 
     // Go through each recipe and convert json to ExploreRecipe object.
     if (json['recipes'] != null) {
-      final recipes = <ExploreRecipe>[];
+      final recipes = <ExploreCollection>[];
       json['recipes'].forEach((v) {
-        recipes.add(ExploreRecipe.fromJson(v));
+        recipes.add(ExploreCollection.fromJson(v));
       });
       return recipes;
     } else {
@@ -85,5 +87,3 @@ class MockFooderlichService {
     return rootBundle.loadString(path);
   }
 }
-
-build_runner: ^2.3.2
