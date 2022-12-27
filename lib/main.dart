@@ -1,6 +1,5 @@
 import 'package:fashion_app/home.dart';
 import 'package:flutter/material.dart';
-import 'navigation/app_router.dart';
 
 void main() {
   runApp(const MyApp());

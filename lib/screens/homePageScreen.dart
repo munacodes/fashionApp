@@ -1,4 +1,3 @@
-import 'package:fashion_app/screens/userProfile.dart';
 import 'package:fashion_app/widgets/widgetsExports.dart';
 import 'package:flutter/material.dart';
 import 'package:fashion_app/utils/fashionTheme.dart';
