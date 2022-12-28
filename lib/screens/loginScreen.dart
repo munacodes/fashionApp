@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class MyLoginScreenPage extends StatefulWidget {
-  const MyLoginScreenPage({Key? key}) : super(key: key);
+class LoginScreenPage extends StatefulWidget {
+  const LoginScreenPage({Key? key}) : super(key: key);
 
   @override
-  State<MyLoginScreenPage> createState() => _MyLoginScreenPageState();
+  State<LoginScreenPage> createState() => _LoginScreenPageState();
 }
 
-class _MyLoginScreenPageState extends State<MyLoginScreenPage> {
+class _LoginScreenPageState extends State<LoginScreenPage> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
