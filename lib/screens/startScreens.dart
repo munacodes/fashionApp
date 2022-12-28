@@ -41,13 +41,33 @@ class _StartScreensPageState extends State<StartScreensPage> {
               fit: BoxFit.cover,
             ),
           ),
-          child: Stack(
-            children: [
-              _page(),
-              const SizedBox(height: 20.0),
-              _buildButtons(),
-            ],
+          child: Expanded(
+            child: SizedBox(
+              height: double.infinity,
+              child: Stack(
+                children: [
+                  _page(),
+                  const SizedBox(height: 20.0),
+                ],
+              ),
+            ),
           ),
+        ),
+      ),
+    );
+  }
+
+  Widget _button() {
+    return Expanded(
+      child: SizedBox(
+        child: Row(
+          children: [
+            Stack(
+              children: [
+                _buildButtons(),
+              ],
+            ),
+          ],
         ),
       ),
     );
@@ -84,7 +104,7 @@ class _StartScreensPageState extends State<StartScreensPage> {
       child: SizedBox(
         width: double.infinity,
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.end,
           children: [
             mainPart(),
             const SizedBox(height: 20.0),
@@ -98,19 +118,25 @@ class _StartScreensPageState extends State<StartScreensPage> {
   Widget mainPart() {
     return Expanded(
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20.0),
+        padding: const EdgeInsets.all(20.0),
         child: PageView(
           controller: controller,
           onPageChanged: (page) {},
           children: [
             _buildPageData(
-              title: "Gain total control of your money",
+              title: "",
+              body: '',
+              imagePath: '',
             ),
             _buildPageData(
-              title: "Know where your money goes",
+              title: "",
+              imagePath: '',
+              body: '',
             ),
             _buildPageData(
-              title: "Planning ahead",
+              title: "",
+              body: '',
+              imagePath: '',
             ),
           ],
         ),
@@ -119,21 +145,19 @@ class _StartScreensPageState extends State<StartScreensPage> {
   }
 
   Widget _buildPageData({
-    String? imagePath,
-    String? title,
-    String? body,
+    required String imagePath,
+    required String title,
+    required String body,
   }) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.end,
       children: [
-        Image.asset(imagePath!),
-        const SizedBox(height: 20.0),
+        Image.asset(imagePath),
         Text(
-          title!,
+          title,
         ),
-        const SizedBox(height: 20.0),
         Text(
-          body!,
+          body,
         ),
       ],
     );
