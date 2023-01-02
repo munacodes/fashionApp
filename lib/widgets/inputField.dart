@@ -3,16 +3,16 @@ import 'package:flutter/material.dart';
 
 class InputField extends StatelessWidget {
   final TextEditingController? controller;
-  final String? hint;
-  final Widget? iconData;
+  final String hint;
+  final Widget iconData;
   final Function(String)? onChanged;
   final String? Function(String?)? validator;
 
-  InputField({
+  const InputField({
     Key? key,
     this.controller,
-    this.hint,
-    this.iconData,
+    required this.hint,
+    required this.iconData,
     this.onChanged,
     this.validator,
   }) : super(key: key);
@@ -29,7 +29,6 @@ class InputField extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          if (iconData != null) iconData!,
           Expanded(
             child: TextFormField(
               controller: controller,
