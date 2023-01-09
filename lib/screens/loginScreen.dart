@@ -17,7 +17,9 @@ class LoginScreenPage extends StatelessWidget {
           ),
           child: Stack(
             children: [
-              // _buildfield(),
+              Container(
+                child: _buildfield(),
+              ),
             ],
           ),
         ),
@@ -38,27 +40,21 @@ class LoginScreenPage extends StatelessWidget {
   Widget _inPutField() {
     return Column(
       children: [
-        Container(
-          child: Column(
-            children: [
-              Row(
-                children: const [
-                  InputField(
-                    hint: 'Email',
-                    iconData: Icon(Icons.email),
-                  ),
-                ],
-              ),
-              Row(
-                children: const [
-                  InputField(
-                    hint: 'Password',
-                    iconData: Icon(Icons.lock),
-                  ),
-                ],
-              ),
-            ],
-          ),
+        Row(
+          children: const [
+            InputField(
+              hint: 'Email',
+              iconData: Icon(Icons.email),
+            ),
+          ],
+        ),
+        Row(
+          children: const [
+            InputField(
+              hint: 'Password',
+              iconData: Icon(Icons.lock),
+            ),
+          ],
         ),
       ],
     );

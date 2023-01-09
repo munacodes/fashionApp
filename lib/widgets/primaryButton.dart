@@ -22,12 +22,6 @@ class PrimaryButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       style: ButtonStyle(
-        padding: MaterialStateProperty.all(const EdgeInsets.all(15)),
-        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-          RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(11.50),
-          ),
-        ),
         backgroundColor: MaterialStateProperty.all<Color>(
           AppCustomColors.light,
         ),
@@ -36,29 +30,6 @@ class PrimaryButton extends StatelessWidget {
       child: Text(
         title,
         style: lightTextTheme.button,
-      ),
-    );
-  }
-}
-
-class SecondaryButton extends StatelessWidget {
-  final String? title;
-  final Function? onPressed;
-  final ButtonStyle? style;
-
-  const SecondaryButton({
-    Key? key,
-    required this.title,
-    required this.onPressed,
-    this.style,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return TextButton(
-      onPressed: () => onPressed!(),
-      child: Text(
-        title!,
       ),
     );
   }

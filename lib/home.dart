@@ -1,7 +1,7 @@
 import 'package:fashion_app/screens/exploreScreen.dart';
 import 'package:fashion_app/screens/loginScreen.dart';
 import 'package:fashion_app/screens/startScreens.dart';
-import 'package:fashion_app/screens/startScreens2.dart';
+
 import 'package:flutter/material.dart';
 import 'screens/homePageScreen.dart';
 import 'screens/startScreens.dart';
@@ -20,7 +20,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return const SafeArea(
       child: Scaffold(
-        body: LoginScreenPage(),
+        body: StartScreens(),
       ),
     );
   }

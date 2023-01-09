@@ -9,14 +9,14 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import '../utils/utilsExports.dart';
 
-class StartScreens2 extends StatefulWidget {
-  const StartScreens2({Key? key}) : super(key: key);
+class StartScreens extends StatefulWidget {
+  const StartScreens({Key? key}) : super(key: key);
 
   @override
-  State<StartScreens2> createState() => _StartScreens2State();
+  State<StartScreens> createState() => _StartScreensState();
 }
 
-class _StartScreens2State extends State<StartScreens2> {
+class _StartScreensState extends State<StartScreens> {
   PageController controller = PageController();
 
   @override
@@ -43,7 +43,9 @@ class _StartScreens2State extends State<StartScreens2> {
           ),
           child: Stack(
             children: [
-              _page(),
+              Container(
+                child: _page(),
+              ),
             ],
           ),
         ),
@@ -57,7 +59,7 @@ class _StartScreens2State extends State<StartScreens2> {
       children: [
         mainPart(),
         _buildIndicators(),
-        // _button(),
+        _button(),
       ],
     );
   }
@@ -106,45 +108,36 @@ class _StartScreens2State extends State<StartScreens2> {
   }
 
   Widget _buildIndicators() {
-    return SmoothPageIndicator(
-      controller: controller, // PageController
-      count: 3,
-      effect: SlideEffect(
-        spacing: 8.0,
-        radius: 20.0,
-        dotWidth: 16.0,
-        dotHeight: 16.0,
-        paintStyle: PaintingStyle.stroke,
-        strokeWidth: 1.5,
-        dotColor: Colors.grey,
-        activeDotColor: AppCustomColors.light[50]!,
+    return Expanded(
+      child: SmoothPageIndicator(
+        controller: controller, // PageController
+        count: 3,
+        effect: SlideEffect(
+          spacing: 8.0,
+          radius: 20.0,
+          dotWidth: 16.0,
+          dotHeight: 16.0,
+          paintStyle: PaintingStyle.stroke,
+          strokeWidth: 1.5,
+          dotColor: Colors.grey,
+          activeDotColor: AppCustomColors.light[50]!,
+        ),
       ),
     );
   }
 
   Widget _button() {
-    return Expanded(
-      child: Container(
-        child: _buildButtons(),
-      ),
+    return Container(
+      child: _buildButtons(),
     );
   }
 
   Widget _buildButtons() {
     return Row(
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        SizedBox(
-          width: double.infinity,
-          child: PrimaryButton(
-            title: "Register",
-            onPressed: () => AppCustomMethods.navigateCloseAll(
-                const RegisterScreen(), context),
-          ),
-        ),
-        SizedBox(
-          width: double.infinity,
-          child: PrimaryButton(
-            title: "Login",
+        Expanded(
+          child: ElevatedButton(
             onPressed: () {
               Navigator.of(context).push(
                 MaterialPageRoute(
@@ -152,6 +145,19 @@ class _StartScreens2State extends State<StartScreens2> {
                 ),
               );
             },
+            child: const Text('Login'),
+          ),
+        ),
+        Expanded(
+          child: ElevatedButton(
+            onPressed: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => const RegisterScreen(),
+                ),
+              );
+            },
+            child: const Text('Register'),
           ),
         ),
       ],

@@ -1,2 +1,3 @@
 export 'inputField.dart';
-export 'button.dart';
+export 'primaryButton.dart';
+export 'secondaryButton.dart';
