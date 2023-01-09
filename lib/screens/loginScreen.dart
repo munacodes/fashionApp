@@ -15,12 +15,14 @@ class LoginScreenPage extends StatelessWidget {
               fit: BoxFit.cover,
             ),
           ),
-          child: Stack(
-            children: [
-              Container(
-                child: _buildfield(),
-              ),
-            ],
+          child: Center(
+            child: Stack(
+              children: [
+                Container(
+                  child: _buildfield(),
+                ),
+              ],
+            ),
           ),
         ),
       ),
@@ -31,7 +33,7 @@ class LoginScreenPage extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        _inPutField(),
+        // _inPutField(),
         _button(),
       ],
     );
@@ -42,18 +44,18 @@ class LoginScreenPage extends StatelessWidget {
       children: [
         Row(
           children: const [
-            InputField(
-              hint: 'Email',
-              iconData: Icon(Icons.email),
-            ),
+            TextField(
+              decoration: InputDecoration(
+                  border: OutlineInputBorder(), hintText: 'Email'),
+            )
           ],
         ),
         Row(
           children: const [
-            InputField(
-              hint: 'Password',
-              iconData: Icon(Icons.lock),
-            ),
+            TextField(
+              decoration: InputDecoration(
+                  border: OutlineInputBorder(), hintText: 'Email'),
+            )
           ],
         ),
       ],
@@ -61,7 +63,7 @@ class LoginScreenPage extends StatelessWidget {
   }
 
   Widget _button() {
-    return Row(
+    return Column(
       children: [
         _primaryButton(),
         _textButton(),
@@ -70,13 +72,9 @@ class LoginScreenPage extends StatelessWidget {
   }
 
   Widget _primaryButton() {
-    return Row(
-      children: [
-        PrimaryButton(
-          title: 'Sign In',
-          onPressed: () {},
-        ),
-      ],
+    return ElevatedButton(
+      onPressed: () {},
+      child: const Text('cvggg'),
     );
   }
 
@@ -84,9 +82,9 @@ class LoginScreenPage extends StatelessWidget {
     return Row(
       children: [
         const Text('Dont have an account?'),
-        SecondaryButton(
-          title: 'Create account',
+        TextButton(
           onPressed: () {},
+          child: const Text('Register'),
         ),
       ],
     );

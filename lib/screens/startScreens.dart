@@ -1,7 +1,7 @@
 import 'package:fashion_app/screens/screensExports.dart';
 import 'package:fashion_app/widgets/widgetsExports.dart';
 import 'package:flutter/material.dart';
-import 'package:fashion_app/utils/fashionTheme.dart';
+import 'package:fashion_app/utils/utilsExports.dart';
 import 'package:fashion_app/utils/colors.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -99,9 +99,17 @@ class _StartScreensState extends State<StartScreens> {
       children: [
         Text(
           title,
+          style: const TextStyle(
+            color: Colors.black,
+            fontSize: 20.0,
+          ),
         ),
         Text(
           body,
+          style: const TextStyle(
+            color: Colors.black,
+            fontSize: 20.0,
+          ),
         ),
       ],
     );
@@ -138,6 +146,11 @@ class _StartScreensState extends State<StartScreens> {
       children: [
         Expanded(
           child: ElevatedButton(
+            style: ButtonStyle(
+              backgroundColor: MaterialStateProperty.all<Color>(
+                AppCustomColors.light,
+              ),
+            ),
             onPressed: () {
               Navigator.of(context).push(
                 MaterialPageRoute(
@@ -145,11 +158,22 @@ class _StartScreensState extends State<StartScreens> {
                 ),
               );
             },
-            child: const Text('Login'),
+            child: const Text(
+              'Login',
+              style: TextStyle(
+                color: Colors.black,
+                fontSize: 20.0,
+              ),
+            ),
           ),
         ),
         Expanded(
           child: ElevatedButton(
+            style: ButtonStyle(
+              backgroundColor: MaterialStateProperty.all<Color>(
+                AppCustomColors.light,
+              ),
+            ),
             onPressed: () {
               Navigator.of(context).push(
                 MaterialPageRoute(
@@ -157,7 +181,13 @@ class _StartScreensState extends State<StartScreens> {
                 ),
               );
             },
-            child: const Text('Register'),
+            child: const Text(
+              'Register',
+              style: TextStyle(
+                color: Colors.black,
+                fontSize: 20.0,
+              ),
+            ),
           ),
         ),
       ],
