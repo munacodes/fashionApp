@@ -57,7 +57,36 @@ class _StartScreensState extends State<StartScreens> {
     return Column(
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              'BELLEMODA',
+              style: GoogleFonts.tenorSans(
+                fontSize: 32,
+                fontWeight: FontWeight.w400,
+                color: Colors.white70,
+              ),
+            ),
+          ],
+        ),
+        const SizedBox(
+          height: 33.0,
+        ),
         mainPart(),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            Text(
+              'Woman/ CAMPAIGN',
+              style: GoogleFonts.tenorSans(
+                fontSize: 32,
+                fontWeight: FontWeight.w400,
+                color: Colors.white,
+              ),
+            ),
+          ],
+        ),
         _buildIndicators(),
         _button(),
       ],
@@ -73,8 +102,8 @@ class _StartScreensState extends State<StartScreens> {
           onPageChanged: (page) {},
           children: [
             _buildPageData(
-              title: "dsdfsdgdf",
-              body: 'fdfdf',
+              title: "SPRING",
+              body: 'SU',
             ),
             _buildPageData(
               title: "asdasfg",
@@ -99,16 +128,18 @@ class _StartScreensState extends State<StartScreens> {
       children: [
         Text(
           title,
-          style: const TextStyle(
-            color: Colors.black,
-            fontSize: 20.0,
+          style: GoogleFonts.lato(
+            fontSize: 88.69,
+            fontWeight: FontWeight.w400,
+            color: Colors.white,
           ),
         ),
         Text(
           body,
-          style: const TextStyle(
-            color: Colors.black,
-            fontSize: 20.0,
+          style: GoogleFonts.lato(
+            fontSize: 88.69,
+            fontWeight: FontWeight.w400,
+            color: Colors.white,
           ),
         ),
       ],
@@ -148,7 +179,7 @@ class _StartScreensState extends State<StartScreens> {
           child: ElevatedButton(
             style: ButtonStyle(
               backgroundColor: MaterialStateProperty.all<Color>(
-                AppCustomColors.light,
+                const Color(0xFF555555),
               ),
             ),
             onPressed: () {
@@ -159,19 +190,22 @@ class _StartScreensState extends State<StartScreens> {
               );
             },
             child: const Text(
-              'Login',
+              'LOGIN',
               style: TextStyle(
-                color: Colors.black,
-                fontSize: 20.0,
+                color: Color(0xFFFFFFFF),
+                fontSize: 18.0,
               ),
             ),
           ),
+        ),
+        const SizedBox(
+          width: 20.0,
         ),
         Expanded(
           child: ElevatedButton(
             style: ButtonStyle(
               backgroundColor: MaterialStateProperty.all<Color>(
-                AppCustomColors.light,
+                const Color(0xFF555555),
               ),
             ),
             onPressed: () {
@@ -182,10 +216,11 @@ class _StartScreensState extends State<StartScreens> {
               );
             },
             child: const Text(
-              'Register',
+              'REGISTER',
               style: TextStyle(
-                color: Colors.black,
-                fontSize: 20.0,
+                color: Color(0xFFFFFFFF),
+                fontSize: 18.0,
+                fontWeight: FontWeight.w400,
               ),
             ),
           ),

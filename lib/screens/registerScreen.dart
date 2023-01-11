@@ -1,9 +1,15 @@
-import 'package:fashion_app/widgets/widgetsExports.dart';
+import 'package:fashion_app/screens/screensExports.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
-class RegisterScreen extends StatelessWidget {
+class RegisterScreen extends StatefulWidget {
   const RegisterScreen({Key? key}) : super(key: key);
 
+  @override
+  State<RegisterScreen> createState() => _RegisterScreenState();
+}
+
+class _RegisterScreenState extends State<RegisterScreen> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -18,7 +24,32 @@ class RegisterScreen extends StatelessWidget {
           child: Stack(
             children: [
               Container(
-                child: _buildfield(),
+                color: Colors.grey.withOpacity(0.5),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    'BELLEMODA',
+                    style: GoogleFonts.tenorSans(
+                      fontSize: 32,
+                      fontWeight: FontWeight.w400,
+                      color: Colors.white70,
+                    ),
+                  ),
+                ],
+              ),
+              Align(
+                alignment: AlignmentDirectional.center,
+                child: SizedBox(
+                  width: 400,
+                  height: 500,
+                  child: Column(
+                    children: [
+                      _buildfield(),
+                    ],
+                  ),
+                ),
               ),
             ],
           ),
@@ -28,73 +59,192 @@ class RegisterScreen extends StatelessWidget {
   }
 
   Widget _buildfield() {
+    return Padding(
+      padding: const EdgeInsets.all(10.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          _buildInputField(),
+          _button(),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildInputField() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        _inPutField(),
-        _button(),
+        _inPutField1(),
+        _inPutField2(),
+        _inPutField3(),
       ],
     );
   }
 
-  Widget _inPutField() {
-    return Column(
-      children: [
-        Row(
-          children: const [
-            InputField(
-              hint: 'Email',
-              iconData: Icon(Icons.email),
-            ),
-          ],
+  Widget _inPutField1() {
+    return const Padding(
+      padding: EdgeInsets.all(20),
+      child: TextField(
+        decoration: InputDecoration(
+          border: OutlineInputBorder(),
+          hintText: 'Email',
+          hintStyle: TextStyle(
+            color: Color(0xFFFFFFFF),
+          ),
         ),
-        Row(
-          children: const [
-            InputField(
-              hint: 'Password',
-              iconData: Icon(Icons.lock),
-            ),
-          ],
+      ),
+    );
+  }
+
+  Widget _inPutField2() {
+    return const Padding(
+      padding: EdgeInsets.all(20),
+      child: TextField(
+        obscureText: true,
+        decoration: InputDecoration(
+          border: OutlineInputBorder(),
+          hintText: 'Password',
+          hintStyle: TextStyle(
+            color: Color(0xFFFFFFFF),
+          ),
         ),
-        Row(
-          children: const [
-            InputField(
-              hint: 'Confirm Password',
-              iconData: Icon(Icons.lock),
-            ),
-          ],
+      ),
+    );
+  }
+
+  Widget _inPutField3() {
+    return const Padding(
+      padding: EdgeInsets.all(20),
+      child: TextField(
+        obscureText: true,
+        decoration: InputDecoration(
+          border: OutlineInputBorder(),
+          hintText: 'Confirm Password',
+          hintStyle: TextStyle(
+            color: Color(0xFFFFFFFF),
+          ),
         ),
-      ],
+      ),
     );
   }
 
   Widget _button() {
-    return Row(
+    return Column(
       children: [
         _primaryButton(),
         _textButton(),
+        _textWidgets(),
       ],
     );
   }
 
   Widget _primaryButton() {
-    return Row(
-      children: [
-        PrimaryButton(
-          title: 'Create account',
-          onPressed: () {},
+    return SizedBox(
+      width: 330,
+      child: ElevatedButton(
+        onPressed: () {
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context) => const HomePageScreen(),
+            ),
+          );
+        },
+        child: Text(
+          'Create Account',
+          style: GoogleFonts.inter(
+            fontSize: 16,
+            fontWeight: FontWeight.w600,
+            color: const Color(0xFFFFFCFC),
+          ),
         ),
-      ],
+      ),
     );
   }
 
   Widget _textButton() {
     return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        const Text('Already have an account?'),
-        SecondaryButton(
-          title: 'Sign In',
-          onPressed: () {},
+        Text(
+          'Already have an account?',
+          style: GoogleFonts.inter(
+            fontSize: 11,
+            fontWeight: FontWeight.w600,
+            color: const Color(0xFF1A0E0E),
+          ),
+        ),
+        TextButton(
+          onPressed: () {
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (context) => const LoginScreenPage(),
+              ),
+            );
+          },
+          child: Text(
+            'Sign In',
+            style: GoogleFonts.inter(
+              fontSize: 11,
+              fontWeight: FontWeight.w600,
+              color: const Color(0xFFFFFFFF),
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _textWidgets() {
+    return Column(
+      children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              'By clicking "Create Account" you agree to our',
+              style: GoogleFonts.montserrat(
+                fontSize: 13.00,
+                fontWeight: FontWeight.w500,
+                color: const Color(0xFFFFFFFF),
+              ),
+            ),
+          ],
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            TextButton(
+              onPressed: () {},
+              child: Text(
+                'terms',
+                style: GoogleFonts.montserrat(
+                  fontSize: 13.00,
+                  fontWeight: FontWeight.w700,
+                  color: const Color(0xFFFFFFFF),
+                ),
+              ),
+            ),
+            Text(
+              'and',
+              style: GoogleFonts.montserrat(
+                fontSize: 13.00,
+                fontWeight: FontWeight.w500,
+                color: const Color(0xFFFFFFFF),
+              ),
+            ),
+            TextButton(
+              onPressed: () {},
+              child: Text(
+                'privacy policy',
+                style: GoogleFonts.montserrat(
+                  fontSize: 13.00,
+                  fontWeight: FontWeight.w700,
+                  color: const Color(0xFFFFFFFF),
+                ),
+              ),
+            ),
+          ],
         ),
       ],
     );

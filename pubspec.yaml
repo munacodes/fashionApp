@@ -41,6 +41,7 @@ dependencies:
   shared_preferences: ^2.0.15
   mockito: ^5.3.2
   flutter_native_splash: ^2.2.9
+  easy_search_bar: ^2.4.2
 
 dev_dependencies:
   flutter_test:
