@@ -13,7 +13,8 @@ class _CollectionPageState extends State<CollectionPage> {
   @override
   Widget build(BuildContext context) {
     return Container(
-        // TODO: Use ListView
-        );
+      color: Colors.red,
+      // TODO: Use ListView
+    );
   }
 }

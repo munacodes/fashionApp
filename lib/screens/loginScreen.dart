@@ -23,6 +23,9 @@ class _LoginScreenPageState extends State<LoginScreenPage> {
           ),
           child: Stack(
             children: [
+              Container(
+                color: Colors.grey.withOpacity(0.5),
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [

@@ -1,3 +1,4 @@
+import 'package:fashion_app/screens/menuScreen.dart';
 import 'package:fashion_app/screens/screensExports.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -28,10 +29,30 @@ class _HomePageScreenState extends State<HomePageScreen> {
           child: Stack(
             children: [
               Align(
-                alignment: AlignmentDirectional.center,
+                alignment: AlignmentDirectional.topCenter,
                 child: SizedBox(
                   width: 400,
                   height: 500,
+                  child: Column(
+                    children: [
+                      Text(
+                        'BELLEMODA',
+                        style: GoogleFonts.tenorSans(
+                          fontSize: 20.0,
+                          fontWeight: FontWeight.w400,
+                          color: const Color(0xFF000000),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              _buildAppbarIcons(),
+              Align(
+                alignment: AlignmentDirectional.center,
+                child: SizedBox(
+                  width: 400,
+                  height: 300,
                   child: Column(
                     children: [
                       _buildTextWidget(),
@@ -111,26 +132,77 @@ class _HomePageScreenState extends State<HomePageScreen> {
   Widget _searchBar() {
     return Row(
       children: [
-        ElevatedButton(
-          style: ButtonStyle(
-            backgroundColor: MaterialStateProperty.all<Color>(
-              const Color(0xFF555555),
-            ),
-          ),
-          onPressed: () {
+        GestureDetector(
+          onTap: () {
             Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (context) => const CollectionPage(),
               ),
             );
           },
-          child: const Text(
-            'Explore Colloection',
-            style: TextStyle(
-              color: Color(0xFFFFFFFF),
-              fontSize: 18.0,
+          child: SizedBox(
+            width: 350,
+            child: Container(
+              padding: const EdgeInsets.all(5.0),
+              decoration: BoxDecoration(
+                color: Colors.black45,
+                borderRadius: BorderRadius.circular(30),
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Icon(
+                    Icons.search,
+                    color: Color(0xFFFCFCFC),
+                    size: 30.0,
+                  ),
+                  const SizedBox(
+                    width: 8.0,
+                  ),
+                  Text(
+                    'Explore Collection',
+                    style: GoogleFonts.tenorSans(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w400,
+                      color: const Color(0xFFFCFCFC),
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildAppbarIcons() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: [
+        IconButton(
+          onPressed: () {
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (context) => const MenuScreen(),
+              ),
+            );
+          },
+          icon: const Icon(Icons.menu),
+        ),
+        const SizedBox(
+          width: 230.0,
+        ),
+        const Icon(
+          Icons.search,
+          color: Color(0xFF14142B),
+        ),
+        const SizedBox(
+          width: 16.0,
+        ),
+        const Icon(
+          Icons.shopping_bag_outlined,
+          color: Color(0xFF14142B),
         ),
       ],
     );

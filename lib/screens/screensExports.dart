@@ -5,3 +5,4 @@ export 'package:fashion_app/screens/registerScreen.dart';
 export 'package:fashion_app/screens/homePageScreen.dart';
 export 'package:fashion_app/screens/profileScreen.dart';
 export 'package:fashion_app/screens/collectionScreen.dart';
+export 'package:fashion_app/screens/menuScreen.dart';
