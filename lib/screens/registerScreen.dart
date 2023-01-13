@@ -2,6 +2,8 @@ import 'package:fashion_app/screens/screensExports.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../components/componentsExports.dart';
+
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({Key? key}) : super(key: key);
 
@@ -178,7 +180,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
           onPressed: () {
             Navigator.of(context).push(
               MaterialPageRoute(
-                builder: (context) => const LoginScreenPage(),
+                builder: (context) => const HomePageScreen(),
               ),
             );
           },

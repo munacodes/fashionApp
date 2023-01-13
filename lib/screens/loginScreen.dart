@@ -2,6 +2,8 @@ import 'package:fashion_app/screens/screensExports.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../components/componentsExports.dart';
+
 class LoginScreenPage extends StatefulWidget {
   const LoginScreenPage({Key? key}) : super(key: key);
 

@@ -20,7 +20,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return const SafeArea(
       child: Scaffold(
-        body: StartScreens(),
+        body: HomePageScreen(),
       ),
     );
   }
