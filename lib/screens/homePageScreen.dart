@@ -31,7 +31,10 @@ class HomePageScreen extends StatelessWidget {
           onPressed: () {},
           icon: Icon(Icons.menu),
         ),
-        Text('BELLEMODA'),
+        GestureDetector(
+          onTap: () {},
+          child: Text('BELLEMODA'),
+        ),
         IconButton(
           onPressed: () {},
           icon: Icon(Icons.search),

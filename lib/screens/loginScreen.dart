@@ -1,4 +1,7 @@
+import 'dart:ffi';
+
 import 'package:fashion_app/screens/screensExports.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -12,6 +15,23 @@ class LoginScreenPage extends StatefulWidget {
 }
 
 class _LoginScreenPageState extends State<LoginScreenPage> {
+  final _emailController = TextEditingController();
+  final _passwordController = TextEditingController();
+
+  Future signIn() async {
+    await FirebaseAuth.instance.signInWithEmailAndPassword(
+      email: _emailController.text.trim(),
+      password: _passwordController.text.trim(),
+    );
+  }
+
+  @override
+  void dispose() {
+    _emailController.dispose();
+    _passwordController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -87,10 +107,11 @@ class _LoginScreenPageState extends State<LoginScreenPage> {
   }
 
   Widget _inPutField1() {
-    return const Padding(
-      padding: EdgeInsets.all(20),
+    return Padding(
+      padding: const EdgeInsets.all(20),
       child: TextField(
-        decoration: InputDecoration(
+        controller: _emailController,
+        decoration: const InputDecoration(
           border: OutlineInputBorder(),
           hintText: 'Email',
           hintStyle: TextStyle(
@@ -102,11 +123,12 @@ class _LoginScreenPageState extends State<LoginScreenPage> {
   }
 
   Widget _inPutField2() {
-    return const Padding(
-      padding: EdgeInsets.all(20),
+    return Padding(
+      padding: const EdgeInsets.all(20),
       child: TextField(
-        obscureText: true,
-        decoration: InputDecoration(
+        controller: _passwordController,
+        obscureText: false,
+        decoration: const InputDecoration(
           border: OutlineInputBorder(),
           hintText: 'Password',
           hintStyle: TextStyle(
@@ -130,13 +152,7 @@ class _LoginScreenPageState extends State<LoginScreenPage> {
     return SizedBox(
       width: 330,
       child: ElevatedButton(
-        onPressed: () {
-          Navigator.of(context).push(
-            MaterialPageRoute(
-              builder: (context) => const HomePageScreen(),
-            ),
-          );
-        },
+        onPressed: signIn,
         child: Text(
           'Sign In',
           style: GoogleFonts.inter(

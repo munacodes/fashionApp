@@ -57,7 +57,7 @@ class BannerWidgets extends StatelessWidget {
               onTap: () {},
               child: Container(
                 decoration: BoxDecoration(
-                  color: Colors.white24,
+                  color: Colors.white38,
                   borderRadius: BorderRadius.circular(50.0),
                 ),
                 child: Row(
