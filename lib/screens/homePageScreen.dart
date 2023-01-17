@@ -1,8 +1,16 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fashion_app/components/componentsExports.dart';
 
-class HomePageScreen extends StatelessWidget {
+class HomePageScreen extends StatefulWidget {
   const HomePageScreen({Key? key}) : super(key: key);
+
+  @override
+  State<HomePageScreen> createState() => _HomePageScreenState();
+}
+
+class _HomePageScreenState extends State<HomePageScreen> {
+  final User = FirebaseAuth.instance.currentUser;
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +33,7 @@ class HomePageScreen extends StatelessWidget {
 
   Widget _buildAppbarWidgets() {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.start,
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
         IconButton(
           onPressed: () {},
@@ -33,15 +41,27 @@ class HomePageScreen extends StatelessWidget {
         ),
         GestureDetector(
           onTap: () {},
-          child: Text('BELLEMODA'),
+          child: Container(
+            padding: const EdgeInsets.all(5.0),
+            decoration: BoxDecoration(
+              color: Colors.black12,
+              borderRadius: BorderRadius.circular(50.0),
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: const [
+                Text('BELLEMODA'),
+              ],
+            ),
+          ),
         ),
         IconButton(
           onPressed: () {},
-          icon: Icon(Icons.search),
+          icon: const Icon(Icons.search),
         ),
         IconButton(
           onPressed: () {},
-          icon: Icon(Icons.shopping_bag_outlined),
+          icon: const Icon(Icons.shopping_bag_outlined),
         ),
       ],
     );

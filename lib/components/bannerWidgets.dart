@@ -7,6 +7,7 @@ class BannerWidgets extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      padding: const EdgeInsets.all(10.0),
       height: 700,
       decoration: const BoxDecoration(
         image: DecorationImage(
@@ -56,8 +57,10 @@ class BannerWidgets extends StatelessWidget {
             child: GestureDetector(
               onTap: () {},
               child: Container(
+                padding: const EdgeInsets.all(5.0),
+                margin: const EdgeInsets.all(30.0),
                 decoration: BoxDecoration(
-                  color: Colors.white38,
+                  color: Colors.black38,
                   borderRadius: BorderRadius.circular(50.0),
                 ),
                 child: Row(
