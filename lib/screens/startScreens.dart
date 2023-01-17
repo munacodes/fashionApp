@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:fashion_app/utils/utilsExports.dart';
 import 'package:fashion_app/utils/colors.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'package:flutter_onboarding_slider/flutter_onboarding_slider.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
@@ -74,7 +75,7 @@ class _StartScreensState extends State<StartScreens> {
           height: 33.0,
         ),
         mainPart(),
-        Row(
+        /* Row(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
             Text(
@@ -84,9 +85,9 @@ class _StartScreensState extends State<StartScreens> {
                 fontWeight: FontWeight.w400,
                 color: Colors.white,
               ),
-            ),
+            ), 
           ],
-        ),
+        ), */
         _buildIndicators(),
         _button(),
       ],
@@ -104,14 +105,17 @@ class _StartScreensState extends State<StartScreens> {
             _buildPageData(
               title: "SPRING",
               body: 'SU',
+              label: 'Woman/ CAMPAIGN',
             ),
             _buildPageData(
               title: "asdasfg",
               body: 'dfsf',
+              label: '',
             ),
             _buildPageData(
               title: "dfsdsd",
               body: 'sdsz',
+              label: '',
             ),
           ],
         ),
@@ -122,6 +126,7 @@ class _StartScreensState extends State<StartScreens> {
   Widget _buildPageData({
     required String title,
     required String body,
+    required String label,
   }) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.end,
@@ -138,6 +143,14 @@ class _StartScreensState extends State<StartScreens> {
           body,
           style: GoogleFonts.lato(
             fontSize: 88.69,
+            fontWeight: FontWeight.w400,
+            color: Colors.white,
+          ),
+        ),
+        Text(
+          label,
+          style: GoogleFonts.tenorSans(
+            fontSize: 32,
             fontWeight: FontWeight.w400,
             color: Colors.white,
           ),

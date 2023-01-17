@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:fashion_app/screens/screensExports.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -15,6 +13,7 @@ class LoginScreenPage extends StatefulWidget {
 }
 
 class _LoginScreenPageState extends State<LoginScreenPage> {
+  final _userNameController = TextEditingController();
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
 
@@ -27,6 +26,7 @@ class _LoginScreenPageState extends State<LoginScreenPage> {
 
   @override
   void dispose() {
+    _userNameController.dispose();
     _emailController.dispose();
     _passwordController.dispose();
     super.dispose();
@@ -48,27 +48,11 @@ class _LoginScreenPageState extends State<LoginScreenPage> {
               Container(
                 color: Colors.grey.withOpacity(0.5),
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    'BELLEMODA',
-                    style: GoogleFonts.tenorSans(
-                      fontSize: 32,
-                      fontWeight: FontWeight.w400,
-                      color: Colors.white70,
-                    ),
-                  ),
-                ],
-              ),
-              const SizedBox(
-                height: 33.0,
-              ),
               Align(
                 alignment: AlignmentDirectional.center,
                 child: SizedBox(
                   width: 400,
-                  height: 350,
+                  height: 400,
                   child: Column(
                     children: [
                       _buildfield(),
@@ -100,15 +84,32 @@ class _LoginScreenPageState extends State<LoginScreenPage> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
+        _userNameInPutField1(),
         _inPutField1(),
         _inPutField2(),
       ],
     );
   }
 
+  Widget _userNameInPutField1() {
+    return Container(
+      margin: const EdgeInsets.all(10),
+      child: TextField(
+        controller: _userNameController,
+        decoration: const InputDecoration(
+          border: OutlineInputBorder(),
+          hintText: 'User Name',
+          hintStyle: TextStyle(
+            color: Color(0xFFFFFFFF),
+          ),
+        ),
+      ),
+    );
+  }
+
   Widget _inPutField1() {
-    return Padding(
-      padding: const EdgeInsets.all(20),
+    return Container(
+      margin: const EdgeInsets.all(10),
       child: TextField(
         controller: _emailController,
         decoration: const InputDecoration(
@@ -123,8 +124,8 @@ class _LoginScreenPageState extends State<LoginScreenPage> {
   }
 
   Widget _inPutField2() {
-    return Padding(
-      padding: const EdgeInsets.all(20),
+    return Container(
+      margin: const EdgeInsets.all(10),
       child: TextField(
         controller: _passwordController,
         obscureText: false,
@@ -150,7 +151,7 @@ class _LoginScreenPageState extends State<LoginScreenPage> {
 
   Widget _primaryButton() {
     return SizedBox(
-      width: 330,
+      width: 350,
       child: ElevatedButton(
         onPressed: signIn,
         child: Text(

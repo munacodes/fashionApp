@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:fashion_app/screens/screensExports.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -13,19 +14,17 @@ class RegisterScreen extends StatefulWidget {
 }
 
 class _RegisterScreenState extends State<RegisterScreen> {
+  final _userNameController = TextEditingController();
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
   final _confirmpasswordController = TextEditingController();
-  final _firstNameController = TextEditingController();
-  final _lastNameController = TextEditingController();
 
   @override
   void dispose() {
+    _userNameController.dispose();
     _emailController.dispose();
     _passwordController.dispose();
     _confirmpasswordController.dispose();
-    _firstNameController.dispose();
-    _lastNameController.dispose();
     super.dispose();
   }
 
@@ -35,7 +34,20 @@ class _RegisterScreenState extends State<RegisterScreen> {
         email: _emailController.text.trim(),
         password: _passwordController.text.trim(),
       );
+
+      // adds user details
+      addUserDetails(
+        _userNameController.text.trim(),
+        _emailController.text.trim(),
+      );
     }
+  }
+
+  Future addUserDetails(String userName, String email) async {
+    await FirebaseFirestore.instance.collection('user').add({
+      'user name': userName,
+      'email': email,
+    });
   }
 
   bool passwordConfirmed() {
@@ -63,23 +75,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
               Container(
                 color: Colors.grey.withOpacity(0.5),
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    'BELLEMODA',
-                    style: GoogleFonts.tenorSans(
-                      fontSize: 32,
-                      fontWeight: FontWeight.w400,
-                      color: Colors.white70,
-                    ),
-                  ),
-                ],
-              ),
               Align(
                 alignment: AlignmentDirectional.center,
                 child: SizedBox(
-                  width: 400,
+                  width: 500,
                   height: 500,
                   child: Column(
                     children: [
@@ -112,6 +111,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
+        _userNameInPutField(),
         _inPutField1(),
         _inPutField2(),
         _inPutField3(),
@@ -119,11 +119,28 @@ class _RegisterScreenState extends State<RegisterScreen> {
     );
   }
 
-  Widget _inPutField1() {
-    return const Padding(
-      padding: EdgeInsets.all(20),
+  Widget _userNameInPutField() {
+    return Container(
+      margin: const EdgeInsets.all(10),
       child: TextField(
-        decoration: InputDecoration(
+        controller: _emailController,
+        decoration: const InputDecoration(
+          border: OutlineInputBorder(),
+          hintText: 'User Name',
+          hintStyle: TextStyle(
+            color: Color(0xFFFFFFFF),
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _inPutField1() {
+    return Container(
+      margin: const EdgeInsets.all(10),
+      child: TextField(
+        controller: _userNameController,
+        decoration: const InputDecoration(
           border: OutlineInputBorder(),
           hintText: 'Email',
           hintStyle: TextStyle(
@@ -135,11 +152,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
   }
 
   Widget _inPutField2() {
-    return const Padding(
-      padding: EdgeInsets.all(20),
+    return Container(
+      margin: const EdgeInsets.all(10),
       child: TextField(
+        controller: _passwordController,
         obscureText: true,
-        decoration: InputDecoration(
+        decoration: const InputDecoration(
           border: OutlineInputBorder(),
           hintText: 'Password',
           hintStyle: TextStyle(
@@ -151,11 +169,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
   }
 
   Widget _inPutField3() {
-    return const Padding(
-      padding: EdgeInsets.all(20),
+    return Container(
+      margin: const EdgeInsets.all(10),
       child: TextField(
+        controller: _confirmpasswordController,
         obscureText: true,
-        decoration: InputDecoration(
+        decoration: const InputDecoration(
           border: OutlineInputBorder(),
           hintText: 'Confirm Password',
           hintStyle: TextStyle(
