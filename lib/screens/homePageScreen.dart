@@ -18,6 +18,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
       children: [
         _buildAppbarWidgets(),
         const BannerSection(),
+        const NewArrivalSection(),
         const BrandSection(),
       ],
     );

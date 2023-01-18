@@ -42,7 +42,7 @@ class _MyAppState extends State<MyApp> {
           ),
         ),
       ),
-      home: const RegisterScreen(),
+      home: const MyHomePage(),
     );
   }
 }

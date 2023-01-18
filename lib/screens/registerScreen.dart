@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:fashion_app/screens/screensExports.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -14,14 +15,12 @@ class RegisterScreen extends StatefulWidget {
 }
 
 class _RegisterScreenState extends State<RegisterScreen> {
-  final _userNameController = TextEditingController();
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
   final _confirmpasswordController = TextEditingController();
 
   @override
   void dispose() {
-    _userNameController.dispose();
     _emailController.dispose();
     _passwordController.dispose();
     _confirmpasswordController.dispose();
@@ -34,20 +33,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
         email: _emailController.text.trim(),
         password: _passwordController.text.trim(),
       );
-
-      // adds user details
-      addUserDetails(
-        _userNameController.text.trim(),
-        _emailController.text.trim(),
-      );
     }
-  }
-
-  Future addUserDetails(String userName, String email) async {
-    await FirebaseFirestore.instance.collection('user').add({
-      'user name': userName,
-      'email': email,
-    });
   }
 
   bool passwordConfirmed() {
@@ -111,7 +97,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        _userNameInPutField(),
         _inPutField1(),
         _inPutField2(),
         _inPutField3(),
@@ -119,28 +104,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
     );
   }
 
-  Widget _userNameInPutField() {
-    return Container(
-      margin: const EdgeInsets.all(10),
-      child: TextField(
-        controller: _emailController,
-        decoration: const InputDecoration(
-          border: OutlineInputBorder(),
-          hintText: 'User Name',
-          hintStyle: TextStyle(
-            color: Color(0xFFFFFFFF),
-          ),
-        ),
-      ),
-    );
-  }
-
   Widget _inPutField1() {
     return Container(
       margin: const EdgeInsets.all(10),
-      child: TextField(
-        controller: _userNameController,
-        decoration: const InputDecoration(
+      child: const TextField(
+        decoration: InputDecoration(
           border: OutlineInputBorder(),
           hintText: 'Email',
           hintStyle: TextStyle(

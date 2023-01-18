@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:fashion_app/models/modelsExport.dart';
 import 'package:fashion_app/components/componentsExports.dart';
 
 class BrandSection extends StatelessWidget {
