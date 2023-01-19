@@ -1,4 +1,4 @@
-import 'Package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:fashion_app/components/componentsExports.dart';
 
 class NewArrivalSection extends StatelessWidget {
