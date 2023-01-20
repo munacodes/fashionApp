@@ -75,19 +75,6 @@ class _StartScreensState extends State<StartScreens> {
           height: 33.0,
         ),
         mainPart(),
-        /* Row(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-            Text(
-              'Woman/ CAMPAIGN',
-              style: GoogleFonts.tenorSans(
-                fontSize: 32,
-                fontWeight: FontWeight.w400,
-                color: Colors.white,
-              ),
-            ), 
-          ],
-        ), */
         _buildIndicators(),
         _button(),
       ],

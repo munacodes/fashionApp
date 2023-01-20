@@ -2,6 +2,7 @@ import 'package:fashion_app/home.dart';
 import 'package:fashion_app/screens/screensExports.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:fashion_app/components/componentsExports.dart';
 
 void main() {
   runApp(const MyApp());
@@ -42,7 +43,7 @@ class _MyAppState extends State<MyApp> {
           ),
         ),
       ),
-      home: const MyHomePage(),
+      home: const AllTabbarWidgets(),
     );
   }
 }
