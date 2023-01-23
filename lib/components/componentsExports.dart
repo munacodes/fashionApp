@@ -10,3 +10,5 @@ export 'package:fashion_app/components/bagWidgets.dart';
 export 'package:fashion_app/components/dressWidgets.dart';
 export 'package:fashion_app/components/tshirtWidgets.dart';
 export 'package:fashion_app/components/apparelWidgets.dart';
+export 'package:fashion_app/components/collectionWidgets.dart';
+export 'package:fashion_app/components/video_section.dart';

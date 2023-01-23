@@ -17,11 +17,17 @@ class BrandWidgets extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
+            const SizedBox(
+              width: 30.25,
+            ),
             GestureDetector(
               onTap: () {
                 // TODO: Add Url Link
               },
               child: Image.asset('assets/images/Prada.png'),
+            ),
+            const SizedBox(
+              width: 50.0,
             ),
             GestureDetector(
               onTap: () {
@@ -29,22 +35,37 @@ class BrandWidgets extends StatelessWidget {
               },
               child: Image.asset('assets/images/Burberry.png'),
             ),
+            const SizedBox(
+              width: 39.0,
+            ),
             GestureDetector(
               onTap: () {
                 // TODO: Add Url Link
               },
               child: Image.asset('assets/images/Boss.png'),
             ),
+            const SizedBox(
+              width: 45.0,
+            ),
           ],
+        ),
+        const SizedBox(
+          height: 28.38,
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
+            const SizedBox(
+              width: 27.0,
+            ),
             GestureDetector(
               onTap: () {
                 // TODO: Add Url Link
               },
               child: Image.asset('assets/images/Catier.png'),
+            ),
+            const SizedBox(
+              width: 44.0,
             ),
             GestureDetector(
               onTap: () {
@@ -52,11 +73,17 @@ class BrandWidgets extends StatelessWidget {
               },
               child: Image.asset('assets/images/Gucci.png'),
             ),
+            const SizedBox(
+              width: 20.0,
+            ),
             GestureDetector(
               onTap: () {
                 // TODO: Add Url Link
               },
               child: Image.asset('assets/images/Tiffany & Co.png'),
+            ),
+            const SizedBox(
+              width: 20.0,
             ),
           ],
         ),

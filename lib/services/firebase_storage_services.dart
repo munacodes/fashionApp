@@ -8,7 +8,6 @@ class FirebaseStorageServiceAll extends GetxService {
     if (imgName == null) {
       return null;
     }
-
     try {
       var urlRef = firebaseStorage
           .child('fashion_images')

@@ -13,32 +13,35 @@ class AllTabbarWidgets extends StatefulWidget {
 class _AllTabbarWidgetsState extends State<AllTabbarWidgets> {
   @override
   Widget build(BuildContext context) {
-    FashionTabController _fashionTabController = Get.find();
-    return SafeArea(
-      child: Scaffold(
-        body: Obx(
-          () => Padding(
-            padding: const EdgeInsets.only(
-              left: 16,
-              right: 16,
-              top: 16,
-            ),
-            child: GridView.builder(
-              itemCount: _fashionTabController.allFashionImages.length,
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2),
-              itemBuilder: (context, index) {
-                return ClipRRect(
-                  child: FadeInImage(
-                    image: NetworkImage(
-                        _fashionTabController.allFashionImages[index]),
-                    placeholder:
-                        AssetImage('assets/images/Fashion App logo.png'),
-                  ),
-                );
-              },
-            ),
-          ),
+    FashionTabController fashionTabController = Get.put(
+      FashionTabController(),
+    );
+    return Obx(
+      () => Padding(
+        padding: const EdgeInsets.only(
+          left: 16,
+          right: 16,
+          top: 16,
+        ),
+        child: GridView.builder(
+          physics: const NeverScrollableScrollPhysics(),
+          itemCount: fashionTabController.allFashionImages.length,
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2),
+          itemBuilder: (context, index) {
+            return ClipRRect(
+              child: SizedBox(
+                height: 200,
+                width: 200,
+                child: FadeInImage(
+                  image: NetworkImage(
+                      fashionTabController.allFashionImages[index]),
+                  placeholder:
+                      const AssetImage('assets/images/Fashion App logo.png'),
+                ),
+              ),
+            );
+          },
         ),
       ),
     );

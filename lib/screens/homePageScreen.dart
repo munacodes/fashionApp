@@ -18,8 +18,10 @@ class _HomePageScreenState extends State<HomePageScreen> {
       children: [
         _buildAppbarWidgets(),
         const BannerSection(),
-        // const NewArrivalSection(),
+        const NewArrivalSection(),
         const BrandSection(),
+        const CollectionSection(),
+        const VideoSection(),
       ],
     );
   }

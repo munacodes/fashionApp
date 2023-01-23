@@ -40,45 +40,57 @@ class _NewArrivalWidgetsState extends State<NewArrivalWidgets>
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+        TabBar(
+          controller: _tabController,
+          labelColor: Colors.black,
+          labelStyle: GoogleFonts.lato(),
+          unselectedLabelColor: Colors.grey,
+          tabs: myTabs,
+        ),
         SizedBox(
-          height: double.infinity,
-          child: TabBar(
-            controller: _tabController,
-            labelColor: Colors.black,
-            labelStyle: GoogleFonts.lato(),
-            unselectedLabelColor: Colors.grey,
-            tabs: myTabs,
-          ),
-        ),
-        const SizedBox(
-          height: double.infinity,
-        ),
-        Flexible(
+          height: 600,
           child: TabBarView(
             controller: _tabController,
-            physics: const BouncingScrollPhysics(),
+            physics: const NeverScrollableScrollPhysics(),
             children: const [
-              SingleChildScrollView(
-                // Adds all_Widgets.dart file
-                child: AllTabbarWidgets(),
-              ),
-              SingleChildScrollView(
-                // Add apparel_Widgets.dart file
-                child: ApparelTabbarWidgets(),
-              ),
-              SingleChildScrollView(
-                // Add dress_Widgets.dart file
-                child: DressTabbarWidgets(),
-              ),
-              SingleChildScrollView(
-                  // Add Tshirt_Widgets.dart file
-                  child: TshirtTabbarWidgets()),
-              SingleChildScrollView(
-                // Adds bag_Widgets.dart file
-                child: BagTabbarWidgets(),
-              ),
+              AllTabbarWidgets(),
+              ApparelTabbarWidgets(),
+              DressTabbarWidgets(),
+              TshirtTabbarWidgets(),
+              BagTabbarWidgets(),
             ],
           ),
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            GestureDetector(
+              onTap: () {},
+              child: Container(
+                padding: const EdgeInsets.all(8.0),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      'Explore More',
+                      style: GoogleFonts.tenorSans(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w400,
+                        color: const Color(0xFF000000),
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 8.0,
+                    ),
+                    const Icon(Icons.forward),
+                  ],
+                ),
+              ),
+            ),
+          ],
         ),
       ],
     );
