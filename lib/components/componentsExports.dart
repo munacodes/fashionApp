@@ -6,3 +6,7 @@ export 'package:fashion_app/components/brand_section.dart';
 export 'package:fashion_app/components/brandWidgets.dart';
 export 'package:fashion_app/components/new_arrivalWidgets.dart';
 export 'package:fashion_app/components/allWidgets.dart';
+export 'package:fashion_app/components/bagWidgets.dart';
+export 'package:fashion_app/components/dressWidgets.dart';
+export 'package:fashion_app/components/tshirtWidgets.dart';
+export 'package:fashion_app/components/apparelWidgets.dart';

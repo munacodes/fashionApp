@@ -19,7 +19,8 @@ class FashionTabController extends GetxController {
     ];
     try {
       for (var img in imgName) {
-        final imgUrl = await Get.find<FirebaseStorageService>().getImage(img);
+        final imgUrl =
+            await Get.find<FirebaseStorageServiceAll>().getImage(img);
         allFashionImages.add(imgUrl!);
       }
     } catch (e) {

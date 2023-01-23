@@ -59,20 +59,23 @@ class _NewArrivalWidgetsState extends State<NewArrivalWidgets>
             physics: const BouncingScrollPhysics(),
             children: const [
               SingleChildScrollView(
-                // TODO: update with all_Widgets.dart file
-                child: Text('he'),
+                // Adds all_Widgets.dart file
+                child: AllTabbarWidgets(),
               ),
               SingleChildScrollView(
-                child: Text('She'),
+                // Add apparel_Widgets.dart file
+                child: ApparelTabbarWidgets(),
               ),
               SingleChildScrollView(
-                child: Text('here'),
+                // Add dress_Widgets.dart file
+                child: DressTabbarWidgets(),
               ),
               SingleChildScrollView(
-                child: Text('There'),
-              ),
+                  // Add Tshirt_Widgets.dart file
+                  child: TshirtTabbarWidgets()),
               SingleChildScrollView(
-                child: Text('Where'),
+                // Adds bag_Widgets.dart file
+                child: BagTabbarWidgets(),
               ),
             ],
           ),

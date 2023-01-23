@@ -43,7 +43,7 @@ class _MyAppState extends State<MyApp> {
           ),
         ),
       ),
-      home: const AllTabbarWidgets(),
+      home: const MyHomePage(),
     );
   }
 }

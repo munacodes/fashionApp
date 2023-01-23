@@ -24,14 +24,6 @@ class _HomePageScreenState extends State<HomePageScreen> {
     );
   }
 
-  Widget _fghfggfg() {
-    return Container(
-      decoration: BoxDecoration(
-          // TODO: Trying to Stack the header section
-          ),
-    );
-  }
-
   Widget _buildAppbarWidgets() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
