@@ -13,9 +13,7 @@ class AllTabbarWidgets extends StatefulWidget {
 class _AllTabbarWidgetsState extends State<AllTabbarWidgets> {
   @override
   Widget build(BuildContext context) {
-    FashionTabController fashionTabController = Get.put(
-      FashionTabController(),
-    );
+    FashionTabController fashionTabController = Get.find();
     return Obx(
       () => Padding(
         padding: const EdgeInsets.only(
@@ -24,7 +22,6 @@ class _AllTabbarWidgetsState extends State<AllTabbarWidgets> {
           top: 16,
         ),
         child: GridView.builder(
-          physics: const NeverScrollableScrollPhysics(),
           itemCount: fashionTabController.allFashionImages.length,
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2),

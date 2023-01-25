@@ -1,3 +1,4 @@
+import 'package:fashion_app/components/trendingSection.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fashion_app/components/componentsExports.dart';
@@ -21,7 +22,10 @@ class _HomePageScreenState extends State<HomePageScreen> {
         const NewArrivalSection(),
         const BrandSection(),
         const CollectionSection(),
-        const VideoSection(),
+        // const VideoSection(),
+        // const ProductSection(),
+        const TrendingSection(),
+        const OpenFashionSection(),
       ],
     );
   }
