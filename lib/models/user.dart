@@ -1,11 +1,11 @@
-class User {
+class UserDetails {
   final String? id;
   final String fullname;
   final String email;
   final String phoneNo;
   final String password;
 
-  const User({
+  const UserDetails({
     this.id,
     required this.fullname,
     required this.email,

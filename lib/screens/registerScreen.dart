@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:fashion_app/models/modelsExport.dart';
 import 'package:fashion_app/screens/screensExports.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -15,6 +16,13 @@ class RegisterScreen extends StatefulWidget {
 }
 
 class _RegisterScreenState extends State<RegisterScreen> {
+  final user = UserDetails(
+    fullname: controller.fullname.text.trim(),
+    email: controller.email.text.trim(),
+    password: controller.password.text.trim(),
+    phoneNo: controller.phoneNo.text.trim(),
+  );
+
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
   final _confirmpasswordController = TextEditingController();
