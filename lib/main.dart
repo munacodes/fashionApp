@@ -22,6 +22,7 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       title: 'Fashion App',
       theme: ThemeData(
+        brightness: Brightness.light,
         textTheme: GoogleFonts.tenorSansTextTheme(),
         inputDecorationTheme: InputDecorationTheme(
           enabledBorder: OutlineInputBorder(

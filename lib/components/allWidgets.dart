@@ -1,4 +1,5 @@
 import 'package:fashion_app/models/fashion_tabs/fashion_tabs_controller.dart';
+import 'package:fashion_app/services/firebase_storage_services.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:placeholder_images/placeholder_images.dart';
@@ -13,7 +14,11 @@ class AllTabbarWidgets extends StatefulWidget {
 class _AllTabbarWidgetsState extends State<AllTabbarWidgets> {
   @override
   Widget build(BuildContext context) {
-    FashionTabController fashionTabController = Get.find();
+    FashionTabController fashionTabController = Get.put(
+      FashionTabController(),
+    );
+    Get.put(FirebaseStorageServiceAll());
+
     return Obx(
       () => Padding(
         padding: const EdgeInsets.only(

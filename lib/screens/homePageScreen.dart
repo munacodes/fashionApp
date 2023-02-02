@@ -1,4 +1,5 @@
 import 'package:fashion_app/components/trendingSection.dart';
+import 'package:fashion_app/screens/menuScreen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fashion_app/components/componentsExports.dart';
@@ -35,7 +36,13 @@ class _HomePageScreenState extends State<HomePageScreen> {
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
         IconButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (context) => const MenuScreen(),
+              ),
+            );
+          },
           icon: Icon(Icons.menu),
         ),
         GestureDetector(
